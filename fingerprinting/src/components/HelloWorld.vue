@@ -1,0 +1,44 @@
+<template>
+  <div class="hello">
+    <input type="file" name="" id="song-input">
+    <button id="submit-song" v-on:click="calculateFingerprint">Submit</button>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "HelloWorld",
+  props: {
+    msg: String
+  },
+  methods: {
+    calculateFingerprint: function() {
+      const baseURI = 'http://localhost:3000/';
+      this.$http.post(baseURI, {
+        body: "body"
+      })
+      .then((result) => {
+        console.log(result)
+      })
+    }
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+</style>
