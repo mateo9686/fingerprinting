@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <input type="file" name="" id="song-input">
+    <input type="file" name="song" id="song-input" v-on:change="getFileBytesArray" />
     <button id="submit-song" v-on:click="calculateFingerprint">Submit</button>
   </div>
 </template>
@@ -8,18 +8,28 @@
 <script>
 export default {
   name: "HelloWorld",
-  props: {
-    msg: String
+  data: function () {
+    return {
+      count: 0
+    }
   },
   methods: {
     calculateFingerprint: function() {
-      const baseURI = 'http://localhost:3000/';
-      this.$http.post(baseURI, {
-        body: "body"
-      })
-      .then((result) => {
-        console.log(result)
-      })
+      const baseURI = "http://localhost:3000/";
+      var formData = new FormData();
+      formData.append("song", this.file);
+      this.$http.post(baseURI, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      });
+
+      // this.$http.post(baseURI, {}).then(result => {
+      //   console.log(result);
+      // });
+    },
+    getFileBytesArray: function(event) {
+      this.file = event.target.files[0];
     }
   }
 };
