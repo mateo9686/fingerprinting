@@ -55,12 +55,4 @@ app.post('/', (req, res) => {
     }
 });
 
-app.get("/get", (req, res) => {
-    fpcalc("./audio.mp3", function (err, result) {
-        if (err) throw err;
-        console.log(result.fingerprint);
-        res.send(result.fingerprint);
-    });
-})
-
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
