@@ -1,17 +1,15 @@
 <template>
   <div>
     <div class="md-layout">
-      <div class="md-layout-item md-size-70">
-        <md-field>
-          <label>Choose audio file</label>
-          <md-file name="song" id="song-input" v-on:change="getFileBytesArray" />
-        </md-field>
-      </div>
-      <div class="md-layout-item">
-        <md-button class="md-raised md-primary" v-on:click="calculateFingerprint">Upload</md-button>
-      </div>
+      <md-field class="md-layout-item md-size-70">
+        <label>Choose audio file</label>
+        <md-file name="song" id="song-input" v-on:change="getFileBytesArray" />
+      </md-field>
+      <md-button
+        class="md-raised md-primary md-layout-item md-size-10"
+        v-on:click="calculateFingerprint"
+      >Upload</md-button>
     </div>
-
   </div>
 </template>
 
@@ -43,7 +41,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-md-field {
-  width: 80%;
-}
 </style>
