@@ -7,10 +7,10 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "FileUpload",
   data: function () {
     return {
-      count: 0
+      file: null
     }
   },
   methods: {
@@ -23,10 +23,6 @@ export default {
           "Content-Type": "multipart/form-data"
         }
       });
-
-      // this.$http.post(baseURI, {}).then(result => {
-      //   console.log(result);
-      // });
     },
     getFileBytesArray: function(event) {
       this.file = event.target.files[0];

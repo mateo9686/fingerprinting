@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <file-upload />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FileUpload from './components/FileUpload.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    FileUpload
   }
 }
 </script>
