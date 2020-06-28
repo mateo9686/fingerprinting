@@ -1,17 +1,27 @@
 <template>
-  <div class="hello">
-    <input type="file" name="song" id="song-input" v-on:change="getFileBytesArray" />
-    <button id="submit-song" v-on:click="calculateFingerprint">Submit</button>
+  <div>
+    <div class="md-layout">
+      <div class="md-layout-item md-size-70">
+        <md-field>
+          <label>Choose audio file</label>
+          <md-file name="song" id="song-input" v-on:change="getFileBytesArray" />
+        </md-field>
+      </div>
+      <div class="md-layout-item">
+        <md-button class="md-raised md-primary" v-on:click="calculateFingerprint">Upload</md-button>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
 export default {
   name: "FileUpload",
-  data: function () {
+  data: function() {
     return {
       file: null
-    }
+    };
   },
   methods: {
     calculateFingerprint: function() {
@@ -33,18 +43,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+md-field {
+  width: 80%;
 }
 </style>
